@@ -13,13 +13,9 @@ function resumeYouTubeVideo() {
 }
 
 document.addEventListener('visibilitychange', () => {
-  chrome.storage.local.get('enabled', data => {
-    if (!data.enabled) return;
-
-    if (document.hidden) {
-      pauseYouTubeVideo();
-    } else {
-      resumeYouTubeVideo();
-    }
-  });
+  if (document.hidden) {
+    pauseYouTubeVideo();
+  } else {
+    resumeYouTubeVideo();
+  }
 });
