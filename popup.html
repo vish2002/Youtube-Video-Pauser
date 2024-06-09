@@ -7,70 +7,11 @@
       width: 200px;
       padding: 10px;
       font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      color: #fff;
-      background-color: #007BFF;
-      border: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    .button:hover {
-      background-color: #0056b3;
-    }
-    .button.off {
-      background-color: #DC3545;
-    }
-    .button.off:hover {
-      background-color: #b02a37;
     }
   </style>
 </head>
 <body>
   <h3>YouTube Auto Pause</h3>
-  <button id="toggleButton" class="button">Turn Off</button>
-  <p id="status">Extension is currently <span id="extensionStatus">enabled</span>.</p>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleButton = document.getElementById('toggleButton');
-      const extensionStatus = document.getElementById('extensionStatus');
-
-      chrome.storage.local.get('enabled', data => {
-        if (data.enabled) {
-          extensionStatus.textContent = 'enabled';
-          toggleButton.textContent = 'Turn Off';
-          toggleButton.classList.remove('off');
-        } else {
-          extensionStatus.textContent = 'disabled';
-          toggleButton.textContent = 'Turn On';
-          toggleButton.classList.add('off');
-        }
-      });
-
-      toggleButton.addEventListener('click', () => {
-        chrome.storage.local.get('enabled', data => {
-          const newStatus = !data.enabled;
-          chrome.storage.local.set({ enabled: newStatus }, () => {
-            if (newStatus) {
-              extensionStatus.textContent = 'enabled';
-              toggleButton.textContent = 'Turn Off';
-              toggleButton.classList.remove('off');
-            } else {
-              extensionStatus.textContent = 'disabled';
-              toggleButton.textContent = 'Turn On';
-              toggleButton.classList.add('off');
-            }
-          });
-        });
-      });
-    });
-  </script>
+  <p>This extension pauses YouTube videos when you switch tabs and resumes when you return.</p>
 </body>
 </html>
